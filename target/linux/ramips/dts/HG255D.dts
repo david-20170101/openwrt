@@ -26,33 +26,33 @@
 
 		partition@0 {
 			label = "u-boot";
-			reg = <0x0 0x20000>;
+			reg = <0x0 0x40000>;
 			read-only;
 		};
 
-		partition@20000 {
-			label = "firmware";
-			reg = <0x20000 0xf80000>;
+		partition@30000 {
+			label = "u-boot-env";
+			reg = <0x40000 0x20000>;
+			read-only;
 		};
 
-
-		factory: partition@fa0000 {
+		factory: partition@60000 {
 			label = "factory";
+			reg = <0x60000 0x20000>;
+			read-only;
+		};
+
+		partition@80000 {
+			label = "firmware";
+			reg = <0x80000 0xf60000>;
+		};
+
+		partition@fa0000 {
+			label = "factory-orig";
 			reg = <0xfa0000 0x20000>;
 			read-only;
 		};
-
-		partition@fc0000 {
-			label = "fullflash";
-			reg = <0x0 0xfc0000>;
-			read-only;
-		};
 	};
-
-
-
-
-
 
 	gpio-leds {
 		compatible = "gpio-leds";
@@ -105,7 +105,7 @@
 	};
 
 	ethernet@10100000 {
-		mtd-mac-address = <&factory 0x4>;
+		mtd-mac-address = <&factory 0x28>;
 	};
 
 	esw@10110000 {
