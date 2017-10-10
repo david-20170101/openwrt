@@ -612,14 +612,7 @@ define Device/tl-wr941nd-v6-cn
     DEVICE_PROFILE := TLWR941
     TPLINK_HWID := 0x09410006
 endef
-
-define Device/tl-wr2041n-v1
-    $(Device/tplink-4mlzma)
-    BOARDNAME := TL-WR2041N-v1
-    DEVICE_PROFILE := TLWR2041
-    TPLINK_HWID := 0x20410001
-endef
-TARGET_DEVICES += tl-wr941nd-v5 tl-wr941nd-v6 tl-wr941nd-v6-cn tl-wr2041n-v1
+TARGET_DEVICES += tl-wr941nd-v5 tl-wr941nd-v6 tl-wr941nd-v6-cn
 
 define Device/tl-wr1041n-v2
     $(Device/tplink-4mlzma)
@@ -715,22 +708,6 @@ define Device/oolite
     CONSOLE := ttyATH0,115200
 endef
 TARGET_DEVICES += oolite
-
-define Device/tl-wr880n-v1
-    $(Device/tplink-4mlzma)
-    BOARDNAME := TL-WR880N-v1
-    DEVICE_PROFILE := TLWR880NV1
-    TPLINK_HWID := 0x08800001
-endef
-TARGET_DEVICES += tl-wr880n-v1
-
-define Device/tl-wr941nd-v7
-    $(Device/tplink-4mlzma)
-    BOARDNAME := TL-WR941ND-v7
-    DEVICE_PROFILE := TLWR941NDV7
-    TPLINK_HWID := 0x09410007
-endef
-TARGET_DEVICES += tl-wr941nd-v7
 
 rootfs_type=$(patsubst jffs2-%,jffs2,$(patsubst squashfs-%,squashfs,$(1)))
 
@@ -2053,9 +2030,6 @@ $(eval $(call SingleProfile,TPLINK,64kraw,TLWR842V1,tl-wr842n-v1,TL-MR3420,ttyS0
 $(eval $(call SingleProfile,TPLINK,64kraw,TLWR941NV2,tl-wr941nd-v2,TL-WR941ND,ttyS0,115200,0x09410002,2,4M))
 $(eval $(call SingleProfile,TPLINK,64kraw,TLWR941NV3,tl-wr941nd-v3,TL-WR941ND,ttyS0,115200,0x09410002,2,4M))
 $(eval $(call SingleProfile,TPLINK,64kraw,TLWR941NV4,tl-wr941nd-v4,TL-WR741ND,ttyS0,115200,0x09410004,1,4M))
-$(eval $(call SingleProfile,TPLINK-LZMA,64kraw,TLWR941NDV7,tl-wr941nd-v7,TL-WR941ND-v7,ttyS0,115200,0x09410007,1,4Mlzma))
-$(eval $(call SingleProfile,TPLINK-LZMA,64kraw,TLWR2041NV1,tl-wr2041n-v1,TL-WR2041N-v1,ttyS0,115200,0x20410001,1,4Mlzma))
-$(eval $(call SingleProfile,TPLINK-LZMA,64kraw,TLWR880NV1,tl-wr880n-v1,TL-WR880N-v1,ttyS0,115200,0x08800001,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK,64kraw,TLWR1043V1,tl-wr1043nd-v1,TL-WR1043ND,ttyS0,115200,0x10430001,1,8M))
 
 $(eval $(call SingleProfile,TPLINK-LZMA,64kraw,TLWR1043V2,tl-wr1043nd-v2,TL-WR1043ND-v2,ttyS0,115200,0x10430002,1,8M))
@@ -2123,9 +2097,7 @@ $(eval $(call MultiProfile,TLWR741,TLWR741NV1 TLWR741NV2))
 $(eval $(call MultiProfile,TLWR743,TLWR743NV1))
 $(eval $(call MultiProfile,TLWR841,TLWR841NV15 TLWR841NV3 TLWR841NV5 TLWR841NV7))
 $(eval $(call MultiProfile,TLWR842,TLWR842V1))
-$(eval $(call MultiProfile,TLWR941,TLWR941NV2 TLWR941NV3 TLWR941NV4 TLWR941NDV7))
-$(eval $(call MultiProfile,TLWR2041,TLWR2041NV1))
-$(eval $(call MultiProfile,TLWR880,TLWR880NV1))
+$(eval $(call MultiProfile,TLWR941,TLWR941NV2 TLWR941NV3 TLWR941NV4))
 $(eval $(call MultiProfile,TLWR1043,TLWR1043V1 TLWR1043V2 TLWR1043V3))
 $(eval $(call MultiProfile,TLWDR4300,TLWDR3500V1 TLWDR3600V1 TLWDR4300V1 TLWDR4300V1IL TLWDR4310V1 MW4530RV1))
 $(eval $(call MultiProfile,TUBE2H,TUBE2H8M TUBE2H16M))
